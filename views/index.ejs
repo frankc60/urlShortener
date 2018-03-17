@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic html5 ejs template</title>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <div class="row container">
+          <div class="col-sm-3">
+            <h2>URL Shortener</h2>
+            <p>Enter full url of site and click button.</p>
+          </div>
+          <div class="col-sm-4 form-group">
+            <div>
+              <label for="fUrl">full url</label>
+              <input type="text" placeholder="http://www.example.com" id="fUrl" class="form-control input-lg margin-bottom" />
+            </div>
+            <div>
+              <button type="button" id="submit" class="btn-success btn-lg btn-block margin-bottom">get shortened url</button>
+            </div>
+            <div id="results"></div>
+          </div>
+          <div class="col-sm-5">    
+            <div id="app"><mark>EJS</mark></div>
+            <p class="text-success">webpack bundles up the js file/s together, so only 1 js file required - bundle.js</p>
+            <p>ejs template used to create this page, and rendered into html</p>
+            <p>express js module used to create this http server</p>
+          </div>
+        </div>
+   
+   
+    
+    <script src="/bundle.js"></script>
+  </body>
+</html>
