@@ -1,7 +1,9 @@
 const path = require('path');
 
 const config = {
-  entry: './client/index.js',
+  entry: {
+    home: './client/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -9,7 +11,8 @@ const config = {
   mode: "development",
   module: {
     rules: [
-      { test: /\.txt$/, use: 'raw-loader' }
+      { test: /\.txt$/, use: 'raw-loader' },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   }
 };
