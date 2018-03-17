@@ -1,3 +1,8 @@
 .margin-bottom {
   margin-bottom:10px;}
   html { font-size: 1em; }
+  footer {
+    position: fixed;
+    bottom: 0%;
+    height: 30px;
+  }

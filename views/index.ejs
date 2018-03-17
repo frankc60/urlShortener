@@ -11,6 +11,11 @@
   -->
   </head>
   <body>
+<header>
+    <div id="logo">frankc60</div>
+    <nav>...</nav>
+</header>
+    <main>
       <div class="row container">
           <div class="col-sm-3">
             <h2>URL Shortener</h2>
@@ -24,7 +29,15 @@
             <div>
               <button type="button" id="submit" class="btn-success btn-lg btn-block margin-bottom">get shortened url</button>
             </div>
-            <div id="results"></div>
+            <div id="results">
+
+              <ul>
+                <% data.forEach((d) => { %>
+                   <li><a href="<%= d.shortUrl %>" target="_blank"><%= d.shortUrl %></a> - <%= d.longUrl %></li>
+                <% }); %>
+                </ul>
+
+            </div>
           </div>
           <div class="col-sm-5">    
             <div id="app"><mark>EJS</mark></div>
@@ -33,7 +46,13 @@
             <p>express js module used to create this http server</p>
           </div>
         </div>
-
+      </main>
+        <footer class="footer text-center">
+            <div class="container text-cente">
+              <span class="text-muted r">&copy; 2018</span>
+            </div>
+          </footer>
+      
     <script src="/bundle.js"></script>
   </body>
 </html>

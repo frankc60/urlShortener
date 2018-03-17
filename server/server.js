@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const middleware = require('webpack-dev-middleware');
 const webpageConfig = require("../webpack.config.js")
 
+const Url = require("./db/url");
+
 const router = require("./routes");
 const compiler = webpack(webpageConfig);
 const app = express();
@@ -18,9 +20,31 @@ app.set("view engine", "ejs");
 app.use(express.static("dist"));
 app.use(express.static("public"));
 
-app.get("/",(req,res) => {
+
+let obj = [
+  { longUrl: "http://111.com", shortUrl: "http://1.com" },
+  { longUrl: "http://222222.com", shortUrl: "http://2.com" },
+]
+
+
+app.get("/", (req,res) => {
   console.log("/ homepage requested");
-  res.render("index");
+  
+
+  
+    const results =  Url.find({}, (err, doc) => {
+      if(err) {
+        console.log("error " + err)
+        //process.exit();
+      } else {
+        console.log(JSON.stringify(doc));
+        res.render("index", {data: doc});
+
+      }
+    });
+    
+
+
 })
 
 app.use("/api",router);
