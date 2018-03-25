@@ -3,7 +3,6 @@ const nconf = require('nconf');
 //const fs    = require('fs');
 
 
-//const auth = 'AIzaSyD6ajt-YAqVb22wr4G4F71ott0fHW7X7zY';
 
 nconf.use('memory');
 nconf.file({ file: '/home/frank/Documents/dev/nodejs/prvConfig.json' });  //don't add to git, prv keys
@@ -13,6 +12,28 @@ let googleApi = nconf.get("googleUrlShortenerApiKey");
 
 
 const urlshortener = google.urlshortener({ version: 'v1', auth: googleApi });
+/*
+const timer = (x) => {
+  return new Promise((resolve, reject) => {
+
+    console.log("timer("+x+")");
+    setTimeout(()=>{
+      console.log("urlShortener.js: timerr('"+x+"')");
+      resolve({data: {"created":"2018-03-18T10:09:32.612Z","_id":"5aae3adc96e1fc0fb3875e3f","longUrl":"Hellowo","id":"https://goo.gl/f6V3U8","__v":0}});
+    },x);
+
+  })
+}
+
+const fakeCall = async(k) => {
+
+  console.log("fakeCall(" + k + ")");
+  console.log("call timer()");
+  let f = await timer(4000);
+  console.log("got reply from timerr()");
+  return (f);  //is a promise because using await on function.
+}
+*/
 
 const getShortUrl = (url) => {
   return new Promise((resolve,reject) => {
@@ -30,8 +51,9 @@ const getShortUrl = (url) => {
     });
   
   })
-
 }
+  
+
 
 /*
 urlshortener.url.get({
@@ -54,4 +76,4 @@ urlshortener.url.insert({
   console.log(res.data);
 });
 */
-module.exports = getShortUrl;
+module.exports =  getShortUrl;

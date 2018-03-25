@@ -16,6 +16,8 @@ app.use(middleware(compiler, {
 }));
 
 app.set("view engine", "ejs");
+app.enable('trust proxy');
+
 
 app.use(express.static("dist"));
 app.use(express.static("public"));
@@ -28,8 +30,9 @@ let obj = [
 
 
 app.get("/", (req,res) => {
-  console.log("/ homepage requested");
-  
+  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  console.log("/ " + ip);
+    
 
   
     const results =  Url.find({}, (err, doc) => {
