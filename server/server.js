@@ -52,7 +52,7 @@ app.get("/", (req,res) => {
 
 app.use("/api",router);
 
-const PORT  = app.settings.env.port || 8080;
+const PORT  = app.settings.env.port || 80;
 const IP    = "0.0.0.0";
 const MODE  = app.settings.env || "development";
 
