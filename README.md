@@ -1,6 +1,13 @@
 # urlShortener
 nodejs app to shorten urls, using google API, express server, EJS, Webpack, Mongoose, Mongodb
 
+## What I learnt
+* intergrating express, ejs, webpacks, mongoose, mongodb, and googleAPI
+* interfacing Mongoose and Mongodb
+* customizing express server
+* set up webpack to configure testing and running.
+
+### More details
 need to have mongodb running.
 
 npm start to begin webpack and run server, watching.
